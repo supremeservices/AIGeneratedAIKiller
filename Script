@@ -1,0 +1,8 @@
+$path = 'HKLM:\SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown'
+$name = "bEnableGentech"
+
+if (!(Test-Path $path)) {
+    Write-Host "Adobe AI Document Stealer not found"
+} else {
+    New-ItemProperty -Path $path -Name $name -PropertyType DWord -Value 0 -Force
+}
